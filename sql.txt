@@ -1,0 +1,65 @@
+create database team;
+create schema main;
+create table main.position (id serial primary key,
+full_name text,
+short_name text); 
+
+create table main.player (id serial primary key,
+image_url text,
+psn text,
+in_team boolean,
+main_position bigint references main.position(id));
+
+create table main.position_secundary_player (player_id bigint references main.player(id),
+position_id bigint references main.position(id),
+primary key (player_id, position_id))
+
+create table main.opponent (id serial primary key,
+name text,
+image_url text,
+facebook text);
+
+create table main.federation (id serial primary key,
+image_url text,
+site text);
+
+create table main.championship (id serial primary key,
+image_url text,
+site text,
+fedearation_id bigint references main.federation (id),
+my_classification text);
+
+create table main.game (id bigserial primary key,
+opponent_id bigint references main.opponent(id),
+championship_id bigint references main.championship(id),
+phase text,
+goals_opponent int,
+goals_my int,
+in_home boolean,
+site text);
+
+create table main.player_stats (id bigserial primary key,
+rating numeric,
+goals int,
+goals_against int,
+assists int,
+wrong_shot int,
+right_shot int,
+right_pass int,
+wrong_pass int,
+right_dribble int,
+wrong_dribble int,
+right_crossing int,
+wrong_crossing int,
+right_tackle int,
+wrong_tackle int,
+block int,
+game_id bigint references main.game(id),
+player_id bigint references main.player(id),
+position_played_id bigint references main.position(id)
+)
+
+
+
+
+
