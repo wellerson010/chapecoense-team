@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
+const middleware = require('./app/config/middleware');
+const config = require('./app/config/config');
 
-consign({
-    cwd: 'app'
-})
-    .include('config.js')
-    .then('db.js')
-    .then('auth.js')
-    .then('middleware.js')
-    .then('repository')
-    .then('routes')
-    .then('boot.js')
-    .into(app);
+//constrollers
+
+const authController = require('./app/controllers/auth-controller');
+
+middleware();
+
+app.use('/auth', authController);
+
+app.listen(config.port, () => console.log('Estou ouvindo na porta: ' + config.port));

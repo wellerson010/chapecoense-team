@@ -1,16 +1,17 @@
 const config = {
-    port: 3000,
-    hostDatabase: '127.0.0.1',
-    portDatabase: '5432',
-    database: 'team',
-    username: 'postgres',
-    password: 'GHq2w3',
-    passport: {
+    authentication: {
         jwtSecret: 'Team123xx.&&',
-        jwtSession: {
-            session: false
-        }
-    }
+    },
+    database: {
+        databaseName: 'team',
+        host: '127.0.0.1',
+        password: 'GHq2w3',
+        port: 5432,
+        username: 'postgres',
+        maxConnections: 20,
+        idleTimeoutMillis: 30000
+    },
+    port: 3000,
 };
 
 module.exports = config;

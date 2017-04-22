@@ -3,4 +3,4 @@ const configDevelopment = require('./config-development');
 
 let development = (process.env.DEVELOPMENT)?true:false;
 
-module.exports = (developmemt) ? configDevelopment:configProduction;
+module.exports = (development) ? configDevelopment:configProduction;
