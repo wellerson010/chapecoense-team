@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const jwt = require('jwt-simple');
 
-const authService = require('../services/auth-service');
 const config = require('../config/config');
 const cryptoService = require('../services/crypto-service');
 const userRepository = require('../repositories/user-repository');

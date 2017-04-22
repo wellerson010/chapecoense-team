@@ -5,8 +5,9 @@ full_name text,
 short_name text); 
 
 create table main.player (id serial primary key,
-image_url text,
+name text,
 psn text,
+image_url text,
 in_team boolean,
 main_position bigint references main.position(id));
 
@@ -59,6 +60,10 @@ player_id bigint references main.player(id),
 position_played_id bigint references main.position(id)
 )
 
+
+create table main.user (id serial primary key,
+login text,
+password text);
 
 
 
