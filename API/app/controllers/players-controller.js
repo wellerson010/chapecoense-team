@@ -16,4 +16,12 @@ router.delete('/delete-from-squad', authService.authenticate(), (req, res) => {
     });
 });
 
+router.post('/get-players-to-vue-tables', authService.authenticate(), (req, res) => {
+    //query,limit,page,orderBy,ascending,byColumn
+    res.json({
+        data: [],
+        count: 1
+    });
+});
+
 module.exports = router;
