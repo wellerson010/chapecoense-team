@@ -7,7 +7,7 @@ const config = require('./app/config/config');
 
 const authController = require('./app/controllers/auth-controller');
 
-middleware();
+middleware(app);
 
 app.use('/auth', authController);
 

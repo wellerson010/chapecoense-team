@@ -9,45 +9,66 @@ const userRepository = require('../repositories/user-repository');
 router.post('/authenticate', (req, res) => {
     let { login, password } = req.body;
 
-    let userDatabase = null;
-
-    userRepository.getUserByLogin(login).then(user => {
-        if (user) {
-            userDatabase = user;
-            return cryptoService.compare(password, user.password);
-        }
-        else {
-            res.json({
-                authenticate: false
-            });
-        }
-    }).then(match => {
-        if (match) {
-            res.json({
-                token: jwt.encode({
-                    id: userDatabase.id
-                }, config.authentication.jwtSecret),
-                authenticate: true
-            });
-        }
-        else {
-            res.json({
-                authenticate: false
-            });
-        }
-    });
-
-    if (email == app.config.passport.login && password == app.config.passport.password) {
+    if (!login || !password) {
         res.json({
-            token: jwt.encode({
-                email: email,
-                password: password
-            }, app.config.passport.jwtSecret)
+            error: true,
+            message: 'Usuário e/ou password vazio!'
         });
     }
     else {
-        res.sendStatus(401);
+
+        let userDatabase = null;
+
+        userRepository.getUserByLogin(login).then(user => {
+            if (user) {
+                userDatabase = user;
+                return cryptoService.compare(password, user.password);
+            }
+        }).then(match => {
+            if (match) {
+                res.json({
+                    token: jwt.encode({
+                        id: userDatabase.id
+                    }, config.authentication.jwtSecret),
+                    authenticate: true,
+                    user: {
+                        name: userDatabase.login
+                    }
+                });
+            }
+            else {
+                res.json({
+                    authenticate: false
+                });
+            }
+        });
     }
 });
+
+//rota temporária
+router.post('/create-user', (req, res) => {
+    let { login, password } = req.body;
+
+    if (!login || !password) {
+        res.json({
+            error: true,
+            message: 'Usuário e/ou password vazio!'
+        });
+    }
+    else{
+        cryptoService.crypto(password).then(passwordCrypted => {
+            return userRepository.createUser(login, passwordCrypted);
+        }).then(data => {
+            res.json({
+                ok: true
+            });
+        }).catch(err => {
+            res.json({
+                error: true,
+                message: err.message
+            });
+        });
+    }
+})
 
 module.exports = router;
