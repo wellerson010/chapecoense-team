@@ -1,0 +1,13 @@
+<div>
+    <div class="squad-table">
+        <v-client-table :data="squad" :columns="columns" :options="options">
+            <template slot="photo" scope="props">
+                <img :src="props.row.image_url"/>
+            </template>
+
+             <template slot="erase" scope="props">
+                <i class="fa fa-minus-circle" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
+            </template>
+        </v-client-table>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+.squad-table table{
+    table-layout: fixed;
+}
+
+.squad-table img{
+    width: 32px;
+}

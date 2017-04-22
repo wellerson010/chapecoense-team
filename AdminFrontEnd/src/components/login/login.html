@@ -1,0 +1,27 @@
+<div class="container container-table">
+    <div class="row vertical-10p">
+        <div class="container">
+            <img src="https://github.com/wellerson010/team-content/blob/master/Images/logo_chape_medium.png?raw=true" class="center-block logo">
+            <div class="text-center col-md-4 col-sm-offset-4">
+
+                <form class="ui form loginForm" @submit.prevent="checkCreds">
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input class="form-control" name="username" placeholder="Usuário" type="text" v-model="username">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input class="form-control" name="password" placeholder="Senha" type="password" v-model="password">
+                    </div>
+                    <button type="submit" v-bind:class="'btn btn-primary btn-lg ' + loading">Logar</button>
+                </form>
+
+                <div v-if=response class="text-red">
+                    <p>{{response}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
