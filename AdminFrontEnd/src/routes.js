@@ -3,7 +3,6 @@ import DashView from './components/Dash.vue'
 // Import Views - Dash
 import DashboardView from './components/views/Dashboard.vue'
 import TasksView from './components/views/Tasks.vue'
-import SettingView from './components/views/Setting.vue'
 import AccessView from './components/views/Access.vue'
 import ServerView from './components/views/Server.vue'
 import ReposView from './components/views/Repos.vue'
@@ -45,12 +44,8 @@ const routes = [
         component: TasksView,
         name: 'Tasks',
         meta: { description: 'Tasks page in the form of a timeline' }
-      }, {
-        path: 'setting',
-        component: SettingView,
-        name: 'Settings',
-        meta: { description: 'User settings page' }
-      }, {
+      },
+       {
         path: 'access',
         component: AccessView,
         name: 'Access',
