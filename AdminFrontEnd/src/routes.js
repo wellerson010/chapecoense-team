@@ -4,7 +4,6 @@ import DashView from './components/Dash.vue'
 import DashboardView from './components/views/Dashboard.vue'
 import TasksView from './components/views/Tasks.vue'
 import AccessView from './components/views/Access.vue'
-import ServerView from './components/views/Server.vue'
 import ReposView from './components/views/Repos.vue'
 
 import editPlayerView from './components/edit-player/edit-player.vue';
@@ -50,12 +49,7 @@ const routes = [
         component: AccessView,
         name: 'Access',
         meta: { description: 'Example of using maps' }
-      }, {
-        path: 'server',
-        component: ServerView,
-        name: 'Servers',
-        meta: { description: 'List of our servers' }
-      }, {
+      },{
         path: 'repos',
         component: ReposView,
         name: 'Repository',

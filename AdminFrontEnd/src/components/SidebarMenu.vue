@@ -52,11 +52,6 @@
       </router-link>
     </li>
     <li class="pageLink" v-on:click="toggleMenu">
-      <router-link to="/dash/server"><i class="fa fa-hdd-o"></i>
-        <span class="page">Server</span>
-      </router-link>
-    </li>
-    <li class="pageLink" v-on:click="toggleMenu">
       <router-link to="/dash/repos"><i class="fa fa-heart"></i>
         <span class="page">Repos</span>
         <small class="label pull-right bg-green">AJAX</small>
