@@ -1,0 +1,36 @@
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" v-on:click="newPosition">Nova</button>
+    </div>
+    <div>
+        <v-client-table :data="positions" :columns="columns" :options="optionsTable">
+            <template slot="options" scope="props">
+                <i class="fa fa-edit icon-edit" title="Editar posição" role="button" v-on:click="editPosition(props.row.id)"></i>
+                <i class="fa fa-minus-circle icon-delete" title="Apagar posição" role="button" v-on:click="deletePosition(props.row.id)"></i>
+            </template>
+        </v-client-table>
+    </div>
+
+    <div v-if="isToShowEditPosition">
+        <form>
+            <div>
+                <label for="txt-edit-position-name">Nome:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-position-name" v-model="position.full_name">
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-position-short-name">Nome Abreviado:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-position-short-name" v-model="position.short_name">
+                </div>
+            </div>
+        </form>
+
+        <div>
+            <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+            <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+        </div>
+    </div>
+</div>

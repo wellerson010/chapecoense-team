@@ -10,6 +10,7 @@ import editPlayerView from './components/edit-player/edit-player.vue';
 import notFoundView from './components/404/404.vue';
 import loginView from './components/login/login.vue';
 import playersView from './components/players/players.vue';
+import positionView from './components/position/position.vue';
 
 // Routes
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
         path: 'edit-player/:id',
         component: editPlayerView,
         name: 'Editar Jogador'
+      },
+      {
+        path: 'position',
+        component: positionView,
+        name: 'Posições'
       },
       {
         path: 'dashboard',

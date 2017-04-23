@@ -1,8 +1,13 @@
 <template>
   <ul class="sidebar-menu">
     <li class="active pageLink" v-on:click="toggleMenu">
-      <router-link to="/dash"><i class="fa fa-desktop"></i>
+      <router-link to="/dash"><i class="fa fa-users"></i>
         <span class="page">Jogadores</span>
+      </router-link>
+    </li>
+    <li class="pageLink" v-on:click="toggleMenu">
+      <router-link to="/dash/position"><i class="fa fa-arrows"></i>
+        <span class="page">Posições</span>
       </router-link>
     </li>
     <li class="pageLink" v-on:click="toggleMenu">

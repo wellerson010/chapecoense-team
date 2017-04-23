@@ -1,10 +1,6 @@
 <div>
     <div class="squad-table">
         <v-client-table :data="squad" :columns="columns" :options="optionsTable">
-            <template slot="photo" scope="props">
-                <img :src="props.row.image_url" />
-            </template>
-
             <template slot="options" scope="props">
                 <i class="fa fa-edit icon-edit" title="Editar jogador" role="button" v-on:click="editPlayer(props.row.id)"></i>
                 <i class="fa fa-minus-circle icon-delete" title="Apagar jogador" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
