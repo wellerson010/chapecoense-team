@@ -15,13 +15,13 @@ let paramsTable = {
   perPage: 20,
   sortIcon: {
     base: 'fa',
-    up: 'fa-arrow-up',
-    down: 'fa-arrow-down'
+    up: 'fa-arrow-down',
+    down: 'fa-arrow-up'
   },
   texts: {
     count: 'Showing {from} to {to} of {count} records|{count} records|One record',
-    filter: 'Filter Results:',
-    filterPlaceholder: 'Buscar:',
+    filter: 'Buscar:',
+    filterPlaceholder: 'Digite aqui o termo para busca',
     limit: 'Registros:',
     noResults: 'Nenhum resultado encontrado',
     page: 'Página:', // for dropdown pagination 

@@ -4,12 +4,18 @@ export default {
     name: 'Squad',
     data: function () {
         return {
-            columns: ['photo', 'position', 'name', 'psn', 'erase'],
+            columns: ['name', 'psn', 'position', 'options'],
             squad: [],
-            options: {
+            optionsTable: {
                 perPage: 50,
                 sortable: ['name', 'psn', 'position'],
                 filterable: false,
+                headings: {
+                    name: 'Nome',
+                    psn: 'PSN',
+                    options: 'Opções',
+                    position: 'Posição'
+                }
             }
         }
     },
@@ -17,14 +23,17 @@ export default {
         this.getSquad();
     },
     methods: {
-        getSquad: function () {
+        editPlayer(id) {
+            this.$router.push('/dash/edit-player/' + id);
+        },
+        getSquad() {
             playerService.getSquad().then(squad => {
                 this.squad = squad;
             });
         },
-        removeFromSquad: function(id){
+        removeFromSquad(id) {
             playerService.deleteFromSquad(id).then(data => {
-                if (data){
+                if (data) {
                     this.squad = this.squad.filter(data => data.id != id);
                 }
             });

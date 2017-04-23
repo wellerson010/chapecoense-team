@@ -10,11 +10,6 @@
         <span class="page">Dashboard</span>
       </router-link>
     </li>
-    <li class="pageLink" v-on:click="toggleMenu">
-      <router-link to="/dash/tables"><i class="fa fa-table"></i>
-        <span class="page">Tables</span>
-      </router-link>
-    </li>
 
     <li class="header">ME</li>
     <li class="pageLink" v-on:click="toggleMenu">

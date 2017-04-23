@@ -1,3 +1,15 @@
 .VuePagination__count{
     display: none;
 }
+
+table{
+    table-layout: fixed !important;
+}
+
+.icon-delete{
+    color: #f00;
+}
+
+.icon-edit{
+    color: #4CAF50;
+}

@@ -1,5 +1,17 @@
 <div>
     <div>
-        <v-server-table :url="urlGetPlayers" :columns="columns" :options="optionsTable"></v-server-table>
+        <button type="button" class="btn btn-primary" v-on:click="newPlayer">Novo</button>
+    </div>
+    <div>
+        <v-server-table :url="urlGetPlayers" :columns="columnsTable" :options="optionsTable">
+            <template slot="in_team" scope="props">
+                <i v-if="props.row.in_team" class="fa fa-check icon-in-team"></i>
+            </template>
+
+            <template slot="options" scope="props">
+                <i class="fa fa-edit icon-edit" title="Editar jogador" role="button" v-on:click="editPlayer(props.row.id)"></i>
+                <i class="fa fa-minus-circle icon-delete" title="Apagar jogador" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
+            </template>
+        </v-server-table>
     </div>
 </div>

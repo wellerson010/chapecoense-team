@@ -17,11 +17,23 @@ export default {
             }
         });
     },
-    getSquad: () => {
+    getPlayer: (id) => {
+        let url = '/players/edit/' + id;
+
+        return api.request(url).then(response => {
+            return response.data;
+        });
+    },
+    getSquad(){
         let url = '/players/squad';
         
         return api.request(url).then(response => {
             return response.data;
         });
+    },
+    save(player){
+        let url = '/players/save';
+        
+        return api.request(url, 'post', player);
     }
 }

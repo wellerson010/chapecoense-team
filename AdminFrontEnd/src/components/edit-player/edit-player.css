@@ -1,0 +1,28 @@
+.form-edit-player{
+    display: flex;
+}
+
+.container-edit-player{
+    padding: 10px;
+}
+
+.container-photo-edit-player{
+    width: 30%;
+    text-align: center;
+}
+
+.container-edit-player-data{
+    flex-grow: 1;
+}
+
+.photo-edit-player{
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.container-edit-player-button{
+    text-align: right;
+    margin-top: 10px;
+}

@@ -1,0 +1,66 @@
+<div class="container-edit-player">
+    <form class="form-edit-player">
+        <div class="container-photo-edit-player">
+            <img :src="player.image_url" class="photo-edit-player">
+            <input v-model="player.image_url" class="form-control">
+        </div>
+
+        <div class="container-edit-player-data">
+            <div>
+                <label for="txt-edit-player-name">Nome:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-player-name" v-model="player.name">
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-player-psn">PSN:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-player-psn" v-model="player.psn">
+                </div>
+            </div>
+
+            <div>
+                <label for="chk-edit-player-in-team">No time?</label>
+                <div>
+                    <input type="checkbox" id="chk-edit-player-in-team" v-model="player.in_team">
+                </div>
+            </div>
+
+            <div>
+                <label for="ddl-edit-player-main-position">Posição principal:</label>
+                <select id="ddl-edit-player-main-position" v-model="player.main_position_id" class="form-control">
+                    <option value="0">
+                        Selecione...
+                    </option>
+                    <option v-for="position in positions" :value="position.id">
+                        {{position.full_name}}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="ddl-edit-player-position-secundary">Posições secundárias (Duplo clique pra remover):</label>
+                <select id="ddl-edit-player-position-secundary" class="form-control" v-model="selectedSecondaryPositionToAdd" v-on:change="addPositionSecundary()">
+                <option value="0">
+                    Selecione...
+                </option>
+                <option v-for="position in positions" :value="position.id">
+                    {{position.full_name}}
+                </option>
+            </select>
+
+                <select multiple class="form-control">
+                <option v-for="position in secondary_positions" :value="position.id" v-on:dblclick="deletePositionSecundary">
+                    {{position.full_name}}
+                </option>
+            </select>
+            </div>
+        </div>
+    </form>
+
+    <div class="container-edit-player-button">
+        <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+        <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+    </div>
+</div>
