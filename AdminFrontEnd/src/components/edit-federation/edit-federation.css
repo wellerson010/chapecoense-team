@@ -1,0 +1,28 @@
+.form-edit-federation{
+    display: flex;
+}
+
+.container-edit-federation{
+    padding: 10px;
+}
+
+.container-photo-edit-federation{
+    width: 30%;
+    text-align: center;
+}
+
+.container-edit-federation-data{
+    flex-grow: 1;
+}
+
+.photo-edit-federation{
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.container-edit-federation-button{
+    text-align: right;
+    margin-top: 10px;
+}

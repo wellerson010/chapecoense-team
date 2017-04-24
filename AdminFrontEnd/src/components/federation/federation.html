@@ -1,0 +1,13 @@
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" v-on:click="newFederation">Novo</button>
+    </div>
+    <div class="federation-table">
+        <v-client-table :data="federations" :columns="columns" :options="optionsTable">
+            <template slot="options" scope="props">
+                <i class="fa fa-edit icon-edit" title="Editar federação" role="button" v-on:click="editFederation(props.row.id)"></i>
+                <i class="fa fa-minus-circle icon-delete" title="Apagar federação" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
+            </template>
+        </v-client-table>
+    </div>
+</div>

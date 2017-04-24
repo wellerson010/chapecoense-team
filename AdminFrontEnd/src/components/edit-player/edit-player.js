@@ -70,8 +70,7 @@ export default {
             this.player.pos_sec = this.player.pos_sec.filter(data => data != positionId);
         },
         save() {
-            this.$store.commit('TOGGLE_LOADING')
-          /*  if (!this.player.name || this.player.name.trim() == '') {
+            if (!this.player.name || this.player.name.trim() == '') {
                 alertService.alert('Por favor, escreva o nome do jogador!');
                 return;
             }
@@ -81,7 +80,7 @@ export default {
             }
             playerService.save(this.player).then(data => {
                 this.$router.push('/dash/players');
-            }); */
+            }); 
         }
     }
 }

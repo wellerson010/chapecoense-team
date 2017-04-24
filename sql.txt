@@ -1,5 +1,6 @@
 create database team;
 create schema main;
+
 create table main.position (id serial primary key,
 full_name text,
 short_name text); 
@@ -9,7 +10,7 @@ name text,
 psn text,
 image_url text,
 in_team boolean,
-main_position bigint references main.position(id));
+main_position_id bigint references main.position(id));
 
 create table main.position_secundary_player (player_id bigint references main.player(id),
 position_id bigint references main.position(id),
@@ -21,6 +22,7 @@ image_url text,
 facebook text);
 
 create table main.federation (id serial primary key,
+name text,
 image_url text,
 site text);
 

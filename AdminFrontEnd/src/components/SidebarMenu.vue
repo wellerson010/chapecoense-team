@@ -11,6 +11,18 @@
       </router-link>
     </li>
     <li class="pageLink" v-on:click="toggleMenu">
+      <router-link to="/dash/opponent"><i class="fa fa-futbol-o"></i>
+        <span class="page">Adversários</span>
+      </router-link>
+    </li>
+    <li class="pageLink" v-on:click="toggleMenu">
+      <router-link to="/dash/federation"><i class="fa fa-home"></i>
+        <span class="page">Federações</span>
+      </router-link>
+    </li>
+
+
+    <li class="pageLink" v-on:click="toggleMenu">
       <router-link to="/dash/dashboard"><i class="fa fa-desktop"></i>
         <span class="page">Dashboard</span>
       </router-link>

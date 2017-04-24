@@ -1,0 +1,29 @@
+<div class="container-edit-federation">
+    <form class="form-edit-federation">
+        <div class="container-photo-edit-federation">
+            <img :src="federation.image_url" class="photo-edit-federation">
+            <input v-model="federation.image_url" class="form-control">
+        </div>
+
+        <div class="container-edit-federation-data">
+            <div>
+                <label for="txt-edit-federation-name">Nome:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-federation-name" v-model="federation.name">
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-federation-site">Site:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-federation-site" v-model="federation.site">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container-edit-federation-button">
+        <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+        <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+    </div>
+</div>

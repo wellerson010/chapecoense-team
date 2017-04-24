@@ -1,0 +1,28 @@
+.form-edit-opponent{
+    display: flex;
+}
+
+.container-edit-opponent{
+    padding: 10px;
+}
+
+.container-photo-edit-opponent{
+    width: 30%;
+    text-align: center;
+}
+
+.container-edit-opponent-data{
+    flex-grow: 1;
+}
+
+.photo-edit-opponent{
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.container-edit-opponent-button{
+    text-align: right;
+    margin-top: 10px;
+}

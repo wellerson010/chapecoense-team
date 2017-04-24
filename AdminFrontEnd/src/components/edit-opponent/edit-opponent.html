@@ -1,0 +1,29 @@
+<div class="container-edit-opponent">
+    <form class="form-edit-opponent">
+        <div class="container-photo-edit-opponent">
+            <img :src="opponent.image_url" class="photo-edit-opponent">
+            <input v-model="opponent.image_url" class="form-control">
+        </div>
+
+        <div class="container-edit-opponent-data">
+            <div>
+                <label for="txt-edit-opponent-name">Nome:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-opponent-name" v-model="opponent.name">
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-opponent-facebook">Facebook:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-opponent-facebook" v-model="opponent.facebook">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container-edit-opponent-button">
+        <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+        <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+    </div>
+</div>
