@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <button type="button" class="btn btn-primary" v-on:click="newChampionship">Novo</button>
+    </div>
+    <div>
+        <v-server-table :url="urlGetChampionship" :columns="columnsTable" :options="optionsTable">
+          
+            <template slot="options" scope="props">
+                <i class="fa fa-edit icon-edit" title="Editar campeonato" role="button" v-on:click="editChampionship(props.row.id)"></i>
+                <i class="fa fa-minus-circle icon-delete" title="Apagar campeonato" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
+            </template> 
+        </v-server-table>
+    </div>
+</div>

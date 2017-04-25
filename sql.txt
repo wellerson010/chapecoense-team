@@ -23,14 +23,36 @@ facebook text);
 
 create table main.federation (id serial primary key,
 name text,
+start_date date,
+end_date date,
 image_url text,
 site text);
 
 create table main.championship (id serial primary key,
+name text,
 image_url text,
 site text,
-fedearation_id bigint references main.federation (id),
-my_classification text);
+format int,
+is_champion bool,
+final_position int,
+knockout_position int,
+federation_id bigint references main.federation (id));
+
+format -
+1 - copa
+2 - liga
+3 - copa com liga
+
+final_position - posição final na liga
+
+knockout_position - posição no mata a mata
+
+0 - nem se classificou - só no format 3
+1 - final
+2 - semi-final
+3 - quartas-de-final
+4 - oitavas de final
+5 - 16 avos de final
 
 create table main.game (id bigserial primary key,
 opponent_id bigint references main.opponent(id),

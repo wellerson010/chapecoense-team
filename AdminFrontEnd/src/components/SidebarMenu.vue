@@ -20,6 +20,11 @@
         <span class="page">Federações</span>
       </router-link>
     </li>
+    <li class="pageLink" v-on:click="toggleMenu">
+      <router-link to="/dash/championship"><i class="fa fa-trophy"></i>
+        <span class="page">Campeonatos</span>
+      </router-link>
+    </li>
 
 
     <li class="pageLink" v-on:click="toggleMenu">

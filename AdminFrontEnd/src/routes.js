@@ -6,6 +6,7 @@ import TasksView from './components/views/Tasks.vue'
 import AccessView from './components/views/Access.vue'
 import ReposView from './components/views/Repos.vue'
 
+import championshipView from './components/championship/championship.vue';
 import editFederationView from './components/edit-federation/edit-federation.vue';
 import editOpponentView from './components/edit-opponent/edit-opponent.vue';
 import editPlayerView from './components/edit-player/edit-player.vue';
@@ -63,6 +64,12 @@ const routes = [
         component: editFederationView,
         name: 'Editar Federação'
       },
+      {
+        path: 'championship',
+        component: championshipView,
+        name: 'Campeonatos'
+      },
+
 
 
 
