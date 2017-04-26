@@ -7,6 +7,7 @@ import AccessView from './components/views/Access.vue'
 import ReposView from './components/views/Repos.vue'
 
 import championshipView from './components/championship/championship.vue';
+import editChampionshipView from './components/edit-championship/edit-championship.vue';
 import editFederationView from './components/edit-federation/edit-federation.vue';
 import editOpponentView from './components/edit-opponent/edit-opponent.vue';
 import editPlayerView from './components/edit-player/edit-player.vue';
@@ -68,6 +69,11 @@ const routes = [
         path: 'championship',
         component: championshipView,
         name: 'Campeonatos'
+      },
+      {
+        path: 'edit-championship/:id',
+        component: editChampionshipView,
+        name: 'Editar Campeonato'
       },
 
 

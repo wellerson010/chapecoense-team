@@ -1,20 +1,21 @@
 import config from '../../config';
+import util from '../../services/util';
 
 export default {
-    data(){
+    data() {
         return {
-            columnsTable: ['name', 'start_date', 'end_date', 'federation', 'options'],
+            columnsTable: ['name', 'start-date', 'end-date', 'federation', 'options'],
             optionsTable: {
                 perPage: 10,
-                sortable: ['name', 'start_date', 'end_date', 'federation'],
+                sortable: ['name', 'start-date', 'end-date', 'federation'],
                 method: 'post',
                 headers: {
                     'Authorization': this.$store.state.token
                 },
                 headings: {
                     name: 'Nome',
-                    start_date: 'Date de Início',
-                    end_date: 'Data Final',
+                    'start-date': 'Date de Início',
+                    'end-date': 'Data Final',
                     federation: 'Federação',
                     options: 'Opções'
                 },
@@ -27,11 +28,14 @@ export default {
         }
     },
     methods: {
-        editChampionship(id){
-
+        editChampionship(id) {
+            this.$router.push('/dash/edit-championship/' + id);
         },
-        newChampionship(){
-
+        formatDate(value) {
+            return util.formatDate(value);
+        },
+        newChampionship() {
+            this.$router.push('/dash/edit-championship/0');
         }
     }
 }

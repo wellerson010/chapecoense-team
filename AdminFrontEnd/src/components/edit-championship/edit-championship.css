@@ -1,0 +1,28 @@
+.form-edit-championship{
+    display: flex;
+}
+
+.container-edit-championship{
+    padding: 10px;
+}
+
+.container-photo-edit-championship{
+    width: 30%;
+    text-align: center;
+}
+
+.container-edit-championship-data{
+    flex-grow: 1;
+}
+
+.photo-edit-championship{
+    height: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.container-edit-championship-button{
+    text-align: right;
+    margin-top: 10px;
+}

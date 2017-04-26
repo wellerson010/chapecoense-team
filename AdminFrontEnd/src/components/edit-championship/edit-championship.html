@@ -1,0 +1,85 @@
+<div class="container-edit-championship">
+    <form class="form-edit-championship">
+        <div class="container-photo-edit-championship">
+            <img :src="championship.image_url" class="photo-edit-championship">
+            <input v-model="championship.image_url" class="form-control">
+        </div>
+
+        <div class="container-edit-championship-data">
+            <div>
+                <label for="txt-edit-championship-name">Nome:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-championship-name" v-model="championship.name">
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Site:</label>
+                <div>
+                    <input class="form-control" id="txt-edit-championship-site" v-model="championship.site">
+                </div>
+            </div>
+
+            <div>
+                <label for="ddl-edit-championship-federation">Federação:</label>
+                <div>
+                    <select id="ddl-edit-championship-federation">
+                        <option value="0">
+                            Selecione...
+                        </option>
+                        <option v-for="federation in federations" v-model="championship.federation_id">
+                            {{federation.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Data de início:</label>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Data Final:</label>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Formato:</label>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Campeão?</label>
+                <div>
+
+                </div>
+            </div>
+
+            <div>
+                <label for="txt-edit-championship-site">Posição Final Liga:</label>
+                <div>
+
+                </div>
+            </div>
+
+             <div>
+                <label for="txt-edit-championship-site">Posição Final Copa:</label>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container-edit-championship-button">
+        <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+        <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+    </div>
+</div>

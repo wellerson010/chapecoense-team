@@ -5,6 +5,14 @@
     <div>
         <v-server-table :url="urlGetChampionship" :columns="columnsTable" :options="optionsTable">
           
+                <template slot="start-date" scope="props">
+                    <span>{{formatDate(props.row.start_date)}}</span>
+                </template> 
+
+                 <template slot="end-date" scope="props">
+                    <span>{{formatDate(props.row.end_date)}}</span>
+                </template>
+
             <template slot="options" scope="props">
                 <i class="fa fa-edit icon-edit" title="Editar campeonato" role="button" v-on:click="editChampionship(props.row.id)"></i>
                 <i class="fa fa-minus-circle icon-delete" title="Apagar campeonato" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
