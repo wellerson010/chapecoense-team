@@ -26,6 +26,12 @@
       </router-link>
     </li>
 
+    <li class="pageLink" v-on:click="toggleMenu">
+      <router-link to="/dash/game"><i class="fa fa-gamepad"></i>
+        <span class="page">Jogos</span>
+      </router-link>
+    </li>
+
 
     <li class="pageLink" v-on:click="toggleMenu">
       <router-link to="/dash/dashboard"><i class="fa fa-desktop"></i>

@@ -9,9 +9,11 @@ import ReposView from './components/views/Repos.vue'
 import championshipView from './components/championship/championship.vue';
 import editChampionshipView from './components/edit-championship/edit-championship.vue';
 import editFederationView from './components/edit-federation/edit-federation.vue';
+import editGameView from './components/edit-game/edit-game.vue';
 import editOpponentView from './components/edit-opponent/edit-opponent.vue';
 import editPlayerView from './components/edit-player/edit-player.vue';
 import federationView from './components/federation/federation.vue';
+import gameView from './components/game/game.vue';
 import notFoundView from './components/404/404.vue';
 import loginView from './components/login/login.vue';
 import opponentView from './components/opponent/opponent.vue';
@@ -75,7 +77,16 @@ const routes = [
         component: editChampionshipView,
         name: 'Editar Campeonato'
       },
-
+      {
+        path: 'game',
+        component: gameView,
+        name: 'Jogos'
+      },
+      {
+        path: 'edit-game/:id',
+        component: editGameView,
+        name: 'Editar Jogo'
+      },
 
 
 

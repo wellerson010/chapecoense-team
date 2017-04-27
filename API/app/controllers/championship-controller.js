@@ -18,4 +18,20 @@ router.post('/get-all-to-vue-tables', authService.authenticate(), (req, res) => 
     });
 });
 
+router.get('/get/:id', (req, res) => {
+    let id = req.params.id;
+
+    championshipRepository.getById(id).then(championship => {
+        res.json(championship);
+    })
+});
+
+router.post('/save', authService.authenticate(), (req, res) => {
+    let championship = req.body;
+
+    championshipRepository.save(championship).then(championshipId => {
+        res.json(true);
+    });
+});
+
 module.exports = router;

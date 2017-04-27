@@ -23,11 +23,11 @@
             <div>
                 <label for="ddl-edit-championship-federation">Federação:</label>
                 <div>
-                    <select id="ddl-edit-championship-federation">
+                    <select id="ddl-edit-championship-federation" v-model="championship.federation_id">
                         <option value="0">
                             Selecione...
                         </option>
-                        <option v-for="federation in federations" v-model="championship.federation_id">
+                        <option v-for="federation in federations" :value="federation.id">
                             {{federation.name}}
                         </option>
                     </select>
@@ -35,44 +35,51 @@
             </div>
 
             <div>
-                <label for="txt-edit-championship-site">Data de início:</label>
-                <div>
+                <label>Data de início:</label>
+                <datePicker :value="championship.start_date" language="pt-br"/>
+            </div>
 
+            <div>
+                <label>Data Final:</label>
+                <datePicker :value="championship.end_date" :clear-button="true" language="pt-br"/>
+            </div>
+
+            <div>
+                <label for="ddl-edit-championship-format">Formato:</label>
+                <div>
+                    <select id="ddl-edit-championship-format" v-model="championship.format">
+                        <option value="0">Selecione...</option>
+                        <option value="1">Copa</option>
+                        <option value="2">Liga</option>
+                        <option value="3">Copa com Liga</option>
+                    </select>
                 </div>
             </div>
 
             <div>
-                <label for="txt-edit-championship-site">Data Final:</label>
+                <label for="chk-edit-championship-champion">Campeão?</label>
                 <div>
-
+                    <input type="checkbox" id="chk-edit-championship-champion" v-model="championship.is_champion">
                 </div>
             </div>
 
             <div>
-                <label for="txt-edit-championship-site">Formato:</label>
+                <label for="txt-edit-championship-final-position">Posição Final Liga:</label>
                 <div>
-
-                </div>
-            </div>
-
-            <div>
-                <label for="txt-edit-championship-site">Campeão?</label>
-                <div>
-
-                </div>
-            </div>
-
-            <div>
-                <label for="txt-edit-championship-site">Posição Final Liga:</label>
-                <div>
-
+                    <input type="number" min="0" id="txt-edit-championship-final-position" v-model="championship.final_position"/>
                 </div>
             </div>
 
              <div>
-                <label for="txt-edit-championship-site">Posição Final Copa:</label>
+                <label for="txt-edit-championship-knockout-position">Posição Final Mata-mata:</label>
                 <div>
-
+                    <select id="ddl-edit-championship-knockout-position" v-model="championship.knockout_position">
+                        <option value="0">Selecione...</option>
+                        <option value="1">Final</option>
+                        <option value="2">Semi-final</option>
+                        <option value="3">Quartas-de-final</option>
+                        <option value="4">Oitavas-de-final</option>
+                    </select>
                 </div>
             </div>
         </div>

@@ -47,12 +47,12 @@ final_position - posição final na liga
 
 knockout_position - posição no mata a mata
 
-0 - nem se classificou - só no format 3
-1 - final
-2 - semi-final
-3 - quartas-de-final
-4 - oitavas de final
-5 - 16 avos de final
+1 - nem se classificou - só no format 3
+2 - final
+3 - semi-final
+4 - quartas-de-final
+5 - oitavas de final
+6 - 16 avos de final
 
 create table main.game (id bigserial primary key,
 opponent_id bigint references main.opponent(id),
@@ -61,6 +61,7 @@ phase text,
 goals_opponent int,
 goals_my int,
 in_home boolean,
+date timestamp without time zone,
 site text);
 
 create table main.player_stats (id bigserial primary key,
