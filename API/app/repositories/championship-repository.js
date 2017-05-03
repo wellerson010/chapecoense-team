@@ -12,7 +12,7 @@ module.exports = {
             }
         });
     },
-    getChampionships(options) {
+    getChampionships(options = {}) {
         let limit = (options.limit) ? 'limit ' + options.limit : '';
         let skip = (options.skip) ? 'offset ' + options.skip : '';
         let orderBy = (options.orderBy) ? options.orderBy.replace('-', '_') : 'name';

@@ -1,22 +1,55 @@
 const databaseService = require('../services/database-service');
 
 module.exports = {
-   /* getAll() {
-        let sql = 'select id, name from main.federation;'
+    getAll(options = {}) {
+        let limit = (options.limit) ? 'limit ' + options.limit : '';
+        let skip = (options.skip) ? 'offset ' + options.skip : '';
+        let orderBy = (options.orderBy) ? options.orderBy : 'date_game';
+        let orderDirection = (options.orderDirection) ? options.orderDirection : 'asc';
+
+        let query = '';
+ /*
+        if (options.query && options.queryColumns) {
+            query = 'where ';
+
+            for (let i = 0; i < options.queryColumns.length; i++) {
+                let column = options.queryColumns[i];
+
+                if (column == 'name') {
+                    column = 'a.name';
+                }
+                else {
+                    column = 'b.name';
+                }
+
+                if (i > 0) {
+                    query += ' or ';
+                }
+
+                query += `${column} ilike '%${options.query}%'`;
+            }
+        }
+ */
+        let sql = `select a.id, b.name as opponent, c.name as championship, 
+        a.goals_my || 'x' || a.goals_opponent as result, a.date_game from main.game a 
+        inner join main.opponent b on (a.opponent_id = b.id) 
+        inner join main.championship c on (a.championship_id = c.id) 
+        ${query} order by ${orderBy} ${orderDirection} ${skip} ${limit} `;
 
         return databaseService.executeQuery(sql).then(data => {
             return data.rows;
         });
-    },
+    }, 
     getById(id) {
-        let sql = 'select id, name, image_url, site from main.federation where id = ' + id;
+        let sql = 'select id, opponent_id, championship_id, phase, goals_opponent, goals_my, ' + 
+        'in_home, site, date_game from main.game where id = ' + id;
 
         return databaseService.executeQuery(sql).then(data => {
             if (data.rows.length > 0) {
                 return data.rows[0];
             }
         });
-    }, */
+    }, 
     save(game) {
         let sql = '';
 
@@ -28,11 +61,11 @@ module.exports = {
             goals_opponent = ${game.goals_opponent},
             goals_my = ${game.goals_my},
             in_home = ${game.in_home},
-            date_game = '${game.date_game}',
+            date_game = '${game.date_game}' 
             where id = ${game.id} RETURNING ID`;
         }
         else {
-            sql = `insert into main.federation (opponent_id, championship_id, phase, goals_opponent,
+            sql = `insert into main.game (opponent_id, championship_id, phase, goals_opponent,
             goals_my, in_home, date_game) 
             values (${game.opponent_id}, ${game.championship_id}, '${game.phase}', ${game.goals_opponent},
             ${game.goals_my}, ${game.in_home}, '${game.date_game}') RETURNING ID`;

@@ -1,3 +1,75 @@
 <div>
+    <div>
+        <label for="ddl-edit-game-opponent">Time Adversário:</label>
+        <div>
+            <select class="form-control" id="ddl-edit-game-opponent" v-model="game.opponent_id">
+                <option value="0">Selecione...</option>
+
+                <option v-for="opponent in opponents" :value="opponent.id">
+                    {{opponent.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label for="ddl-edit-game-championship">Campeonato:</label>
+        <div>
+            <select class="form-control" id="ddl-edit-game-championship" v-model="game.championship_id">
+                <option value="0">Selecione...</option>
+
+                <option v-for="championship in championships" :value="championship.id">
+                    {{championship.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label for="txt-edit-game-phase">Fase:</label>
+        <div>
+            <input id="txt-edit-game-phase" v-model="game.phase">
+        </div>
+    </div>
+
+    <div>
+        <label for="chk-edit-game-in-home">Em Casa?</label>
+        <div>
+            <input id="chk-edit-game-in-home" type="checkbox" v-model="game.in_home">
+        </div>
+    </div>
+
+    <div>
+        <label for="txt-edit-game-goals-my">Meus Gols:</label>
+        <div>
+            <input id="txt-edit-game-goals-my" v-model="game.goals_my">
+        </div>
+    </div>
+
+    <div>
+        <label for="txt-edit-game-goals-opponent">Gols do Oponente:</label>
+        <div>
+            <input id="txt-edit-game-goals-opponent" v-model="game.goals_opponent">
+        </div>
+    </div>
+
+    <div>
+        <label for="txt-edit-game-goals-date">Data (Segue o formato 1999-01-08 04:05:06):</label>
+        <div>
+            <input id="txt-edit-game-goals-date" v-model="game.date_game">
+        </div>
+    </div>
+
+    <div>
+        <label for="txt-edit-game-goals-site">Site:</label>
+        <div>
+            <input id="txt-edit-game-goals-site" v-model="game.site">
+        </div>
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-primary" v-on:click="save">Salvar</button>
+        <button type="button" class="btn btn-danger" v-on:click="cancel">Cancelar</button>
+    </div>
 
 </div>
