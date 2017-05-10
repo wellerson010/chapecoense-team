@@ -1,9 +1,10 @@
 import config from '../../config';
+import util from '../../services/util';
 
 export default {
     data() {
         return {
-            columnsTable: ['opponent', 'championship', 'result', 'date_game', 'options'],
+            columnsTable: ['opponent', 'championship', 'result', 'date', 'options'],
             optionsTable: {
                 perPage: 10,
                 //   sortable: ['name'],
@@ -14,6 +15,7 @@ export default {
                 headings: {
                     name: 'Nome',
                     options: 'Opções',
+                    date: 'Data',
                 },
                 texts: {
                     filter: '',
@@ -26,6 +28,9 @@ export default {
     methods: {
         editGame(id) {
             this.$router.push('/dash/edit-game/' + id);
+        },
+        formatDate(value) {
+            return util.formatDate(value, true);
         },
         newGame() {
             this.$router.push('/dash/edit-game/0');

@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" v-on:click="showWindow('game')">Jogo</button>
+        <button type="button" class="btn btn-default" v-on:click="showWindow('players')">Jogadores</button>
+    </div>
+    <statsGame v-if="toShowGame"/>
+    <statsPlayer v-if="toShowPlayer"/>
+</div>

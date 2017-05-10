@@ -61,8 +61,37 @@ phase text,
 goals_opponent int,
 goals_my int,
 in_home boolean,
-date timestamp without time zone,
+date_game timestamp without time zone,
 site text);
+
+create table main.game_status (id bigserial primary key,
+game_id bigint references main.game(id),
+my_shots int,
+opponent_shots int,
+my_shots_target int,
+opponent_shots_target int,
+my_possession int,
+opponent_possession int,
+my_tackles int,
+opponent_tackles int,
+my_fouls int,
+opponent_fouls int,
+my_yellow_cards int,
+opponent_yellow_cards int,
+my_red_cards int,
+opponent_red_cards int,
+my_offsides int,
+opponent_offsides int,
+my_corners int,
+opponent_corners int,
+my_shot_accuracy int,
+opponent_shot_accuracy int,
+my_pass_accuracy int,
+opponent_pass_accuracy int)
+
+
+tackles - dividida
+offsides - impedimento
 
 create table main.player_stats (id bigserial primary key,
 rating numeric,

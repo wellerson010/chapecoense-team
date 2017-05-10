@@ -1,6 +1,7 @@
 import gameService from '../../services/game-service';
 import opponentService from '../../services/opponent-service';
 import championshipService from '../../services/championship-service';
+import util from '../../services/util';
 
 export default {
     created() {
@@ -10,10 +11,13 @@ export default {
             championshipService.getListCache().then(championships => {
                 this.championships = championships;
 
-                console.log(this.game.id);
                 if (this.game.id > 0) {
                     gameService.get(this.game.id).then(game => {
                         this.game = game;
+
+                        this.game.date_game = util.formatDate(this.game.date_game, true, {
+                            hideTrace: true
+                        });
                     });
                 }
             });
@@ -37,10 +41,10 @@ export default {
         }
     },
     methods: {
-        cancel(){
+        cancel() {
             this.$router.push('/dash/game');
         },
-        save(){
+        save() {
             gameService.save(this.game).then(data => {
                 this.$router.push('/dash/game');
             });

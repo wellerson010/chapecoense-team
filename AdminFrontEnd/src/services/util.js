@@ -1,20 +1,34 @@
 export default {
-    formatDate(value) {
-        if (typeof(value) == 'string'){
+    formatDate(value, formatTime = false, options = {}) {
+        if (typeof (value) == 'string') {
             value = new Date(value);
         }
-        let day = value.getDate();
-        let month = value.getMonth() + 1;
+        let day = formatValue(value.getDate());
+        let month = formatValue(value.getMonth() + 1);
         let year = value.getFullYear();
 
-        if (day < 10) {
-            day = '0' + day;
+        let date = `${day}/${month}/${year}`;
+
+        if (!formatTime) {
+            return date;
         }
 
-        if (month < 10) {
-            month = '0' + month;
-        }
+        let hour = formatValue(value.getHours()),
+            minute = formatValue(value.getMinutes());
 
-        return `${day}/${month}/${year}`;
+        if (!options.hideTrace){
+            date += ' -';
+        }
+        date += ` ${hour}:${minute}`;
+
+        return date;
     }
+}
+
+function formatValue(value) {
+    if (value < 10) {
+        value = '0' + value;
+    }
+
+    return value;
 }

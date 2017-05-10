@@ -3,9 +3,14 @@
 
     <div>
         <v-server-table :url="urlGetGame" :columns="columnsTable" :options="optionsTable">
+                <template slot="date" scope="props">
+                    <span>{{formatDate(props.row.date_game)}}</span>
+                </template> 
+
             <template slot="options" scope="props">
                 <i class="fa fa-edit icon-edit" title="Editar time" role="button" v-on:click="editGame(props.row.id)"></i>
                 <i class="fa fa-minus-circle icon-delete" title="Apagar time" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
+                <button class="btn btn-primary">Registrar Estatísticas</button>
             </template>
         </v-server-table>
     </div>
