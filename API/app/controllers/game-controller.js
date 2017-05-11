@@ -34,4 +34,28 @@ router.post('/save', authService.authenticate(), (req, res) => {
     });
 });
 
+router.get('/get-stats/:game_id', authService.authenticate(), (req, res) => {
+    let gameId = req.params.game_id;
+
+    gameRepository.getStatsByGameId(gameId).then(stats => {
+        res.json(stats);
+    });
+});
+
+router.post('/save-stats', authService.authenticate(), (req, res) => {
+    let stats = req.body.stats;
+
+    gameRepository.saveStats(stats).then(() => {
+        res.json(true);
+    });
+});
+
+router.get('/main-info/:game_id', authService.authenticate(), (req, res) => {
+    let gameId = req.params.game_id;
+
+    gameRepository.getMainInfo(gameId).then(data => {
+        res.json(data);
+    });
+});
+
 module.exports = router;

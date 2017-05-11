@@ -1,4 +1,5 @@
 const databaseService = require('../services/database-service');
+const genericRepository = require('./generic-repository');
 
 module.exports = {
     getAll(options = {}) {
@@ -8,28 +9,7 @@ module.exports = {
         let orderDirection = (options.orderDirection) ? options.orderDirection : 'asc';
 
         let query = '';
- /*
-        if (options.query && options.queryColumns) {
-            query = 'where ';
-
-            for (let i = 0; i < options.queryColumns.length; i++) {
-                let column = options.queryColumns[i];
-
-                if (column == 'name') {
-                    column = 'a.name';
-                }
-                else {
-                    column = 'b.name';
-                }
-
-                if (i > 0) {
-                    query += ' or ';
-                }
-
-                query += `${column} ilike '%${options.query}%'`;
-            }
-        }
- */
+ 
         let sql = `select a.id, b.name as opponent, c.name as championship, 
         a.goals_my || 'x' || a.goals_opponent as result, a.date_game from main.game a 
         inner join main.opponent b on (a.opponent_id = b.id) 
@@ -40,15 +20,26 @@ module.exports = {
             return data.rows;
         });
     }, 
+    getMainInfo(gameId){
+        let sql = `select b.name as opponent, c.name as championship, 
+        a.phase, a.goals_my, a.goals_opponent, b.image_url as opponent_image, 
+        a.date_game from main.game a 
+        inner join main.opponent b on (a.opponent_id = b.id) 
+        inner join main.championship c on (a.championship_id = c.id) 
+        where a.id = ` + gameId;
+
+        return databaseService.getFirstResult(sql);
+    },
+    getStatsByGameId(gameId){
+        let sql = 'select * from main.game_stats where game_id = ' + gameId;
+
+        return databaseService.getFirstResult(sql);
+    },
     getById(id) {
         let sql = 'select id, opponent_id, championship_id, phase, goals_opponent, goals_my, ' + 
         'in_home, site, date_game from main.game where id = ' + id;
 
-        return databaseService.executeQuery(sql).then(data => {
-            if (data.rows.length > 0) {
-                return data.rows[0];
-            }
-        });
+        return databaseService.getFirstResult(sql);
     }, 
     save(game) {
         let sql = '';
@@ -74,5 +65,8 @@ module.exports = {
         return databaseService.executeQuery(sql).then(data => {
             return data.rows[0].id;
         });
+    },
+    saveStats(gameStats){
+        return genericRepository.save(gameStats, 'main.game_stats');
     },
 };

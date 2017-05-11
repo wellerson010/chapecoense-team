@@ -1,0 +1,16 @@
+.container-stats-data{
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px #ccc solid;
+}
+
+.lbl-stats{
+    display: inline-block;
+    width: 130px;
+}
+
+.container-stats-data input {
+    text-align: center;
+    width: 45px;
+}

@@ -19,6 +19,7 @@ import loginView from './components/login/login.vue';
 import opponentView from './components/opponent/opponent.vue';
 import playersView from './components/players/players.vue';
 import positionView from './components/position/position.vue';
+import stats from './components/stats/stats.vue';
 
 // Routes
 const routes = [
@@ -87,9 +88,11 @@ const routes = [
         component: editGameView,
         name: 'Editar Jogo'
       },
-
-
-
+      {
+        path: 'stats/:id',
+        component: stats,
+        name: 'Estatísticas'
+      },
       {
         path: 'dashboard',
         component: DashboardView,
@@ -101,12 +104,12 @@ const routes = [
         name: 'Tasks',
         meta: { description: 'Tasks page in the form of a timeline' }
       },
-       {
+      {
         path: 'access',
         component: AccessView,
         name: 'Access',
         meta: { description: 'Example of using maps' }
-      },{
+      }, {
         path: 'repos',
         component: ReposView,
         name: 'Repository',

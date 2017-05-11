@@ -34,6 +34,9 @@ export default {
         },
         newGame() {
             this.$router.push('/dash/edit-game/0');
+        },
+        stats(id){
+            this.$router.push('/dash/stats/' + id);
         }
     }
 }

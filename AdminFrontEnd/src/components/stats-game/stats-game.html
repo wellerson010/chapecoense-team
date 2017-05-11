@@ -1,3 +1,67 @@
-<div>
-    Jogo
+<div class="container-stats">
+    <div class="container-stats-data">
+        <input v-model="stats.my_shots">
+        <span class="lbl-stats">Finalizações</span class="lbl-stats">
+        <input v-model="stats.opponent_shots">
+    </div>
+
+     <div class="container-stats-data">
+        <input v-model="stats.my_shots_target">
+        <span class="lbl-stats">Finalizações no Alvo</span class="lbl-stats">
+        <input v-model="stats.opponent_shots_target">
+    </div>
+
+    <div class="container-stats-data">
+        <input v-model="stats.my_possession">
+        <span class="lbl-stats">Posse de bola</span class="lbl-stats">
+        <input v-model="stats.opponent_possession">
+    </div>
+
+    <div class="container-stats-data">
+        <input v-model="stats.my_tackles">
+        <span class="lbl-stats">Divididas</span class="lbl-stats">
+        <input v-model="stats.opponent_tackles">
+    </div>
+
+    <div class="container-stats-data">
+        <input v-model="stats.my_fouls">
+        <span class="lbl-stats">Faltas</span class="lbl-stats">
+        <input v-model="stats.opponent_fouls">
+    </div>
+
+     <div class="container-stats-data">
+        <input v-model="stats.my_yellow_cards">
+        <span class="lbl-stats">Cartões amarelos</span class="lbl-stats">
+        <input v-model="stats.opponent_yellow_cards">
+    </div>
+
+     <div class="container-stats-data">
+        <input v-model="stats.my_red_cards">
+        <span class="lbl-stats">Cartões vermelhos</span class="lbl-stats">
+        <input v-model="stats.opponent_red_cards">
+    </div>
+
+    <div class="container-stats-data">
+        <input v-model="stats.my_offsides">
+        <span class="lbl-stats">Impedimentos</span class="lbl-stats">
+        <input v-model="stats.opponent_offsides">
+    </div>
+
+     <div class="container-stats-data">
+        <input v-model="stats.my_corners">
+        <span class="lbl-stats">Escanteios</span class="lbl-stats">
+        <input v-model="stats.opponent_corners">
+    </div>
+
+    <div class="container-stats-data">
+        <input v-model="stats.my_shot_accuracy">
+        <span class="lbl-stats">Precisão no chute (%)</span class="lbl-stats">
+        <input v-model="stats.opponent_shot_accuracy">
+    </div>
+
+      <div class="container-stats-data">
+        <input v-model="stats.my_pass_accuracy">
+        <span class="lbl-stats">Precisão no passe (%)</span class="lbl-stats">
+        <input v-model="stats.opponent_pass_accuracy">
+    </div>
 </div>

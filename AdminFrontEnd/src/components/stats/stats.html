@@ -3,6 +3,29 @@
         <button type="button" class="btn btn-default" v-on:click="showWindow('game')">Jogo</button>
         <button type="button" class="btn btn-default" v-on:click="showWindow('players')">Jogadores</button>
     </div>
-    <statsGame v-if="toShowGame"/>
-    <statsPlayer v-if="toShowPlayer"/>
+
+    <div class="container-main-info">
+        <div>
+            <img class="picture-team" src="https://raw.githubusercontent.com/wellerson010/team-content/master/Images/logo_chape_medium.png">
+            <div class="container-goals">
+                <span>{{game.goals_my}}</span>
+            </div>
+        </div>
+        <div class="container-data-game">
+            <div class="flex-grow-1">
+                <p>{{game.championship}}</p>
+                <p>{{game.phase}}</p>
+                <p>{{formatDate(game.date_game)}}</p>
+            </div>
+            <p class="x-game-visual">X</p>
+        </div>
+        <div>
+            <img class="picture-team" :src="game.opponent_image">
+            <div class="container-goals">
+                <span>{{game.goals_opponent}}</span>
+            </div>
+        </div>
+    </div>
+    <statsGame v-if="toShowGame" :game-id="gameId" />
+    <statsPlayer v-if="toShowPlayer" :game-id="gameId" />
 </div>

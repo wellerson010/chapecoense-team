@@ -13,3 +13,7 @@ table{
 .icon-edit{
     color: #4CAF50;
 }
+
+.flex-grow-1{
+    flex-grow: 1;
+}

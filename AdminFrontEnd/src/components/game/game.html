@@ -10,7 +10,7 @@
             <template slot="options" scope="props">
                 <i class="fa fa-edit icon-edit" title="Editar time" role="button" v-on:click="editGame(props.row.id)"></i>
                 <i class="fa fa-minus-circle icon-delete" title="Apagar time" role="button" v-on:click="removeFromSquad(props.row.id)"></i>
-                <button class="btn btn-primary">Registrar Estatísticas</button>
+                <button class="btn btn-primary" v-on:click="stats(props.row.id)">Registrar Estatísticas</button>
             </template>
         </v-server-table>
     </div>

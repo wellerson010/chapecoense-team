@@ -1,5 +1,9 @@
 export default {
     formatDate(value, formatTime = false, options = {}) {
+        if (!value){
+            return '';
+        }
+        
         if (typeof (value) == 'string') {
             value = new Date(value);
         }
